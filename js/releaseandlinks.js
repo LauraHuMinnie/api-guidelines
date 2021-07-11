@@ -2,7 +2,7 @@
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://api.github.com/users/bibeva/repos', true)
+request.open('GET', 'https://api.github.com/repos/teamon/tesla/releases', true)
 
 request.onload = function () {
   // Begin accessing JSON data here
@@ -11,14 +11,10 @@ request.onload = function () {
   var statusHTML = '';
   $.each(data, function(i, status) {
     statusHTML += '<tr>';
-    statusHTML += '<td>' + status.id + '</td>';
     statusHTML += '<td>' + status.name + '</td>';
-    statusHTML += '<td>' + status.html_url + '</td>';
-    statusHTML += '<td>' + status.language + '</td>';
-    statusHTML += '</tr>';
+    statusHTML += '<td>' + status.html_url + '</td>'
   });
   $('tbody').html(statusHTML);
 }
-
 // Send request
 request.send();
